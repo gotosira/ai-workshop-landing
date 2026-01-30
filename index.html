@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for Designers Workshop | เรียนรู้ AI สำหรับนักออกแบบ</title>
+    <meta name="description" content="Workshop สอนใช้ AI สำหรับ Designer โดย May (Kacha Hanchana) - Design System Lead @ AXONS | 16+ ปีประสบการณ์">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['IBM Plex Sans Thai', 'Space Grotesk', 'system-ui'],
+                        display: ['Space Grotesk', 'system-ui']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text { background: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-bg { background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%); }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
+        .glow { box-shadow: 0 0 60px rgba(249, 115, 22, 0.3), 0 0 120px rgba(236, 72, 153, 0.2); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .float { animation: float 3s ease-in-out infinite; }
+        .mesh-bg { background-image: radial-gradient(at 40% 20%, rgba(249, 115, 22, 0.15) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(236, 72, 153, 0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(139, 92, 246, 0.1) 0px, transparent 50%), radial-gradient(at 80% 80%, rgba(6, 182, 212, 0.1) 0px, transparent 50%); }
+    </style>
+</head>
+<body class="gradient-bg text-white min-h-screen font-sans">
+    
+    <!-- Hero Section -->
+    <section class="mesh-bg min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span class="text-sm text-zinc-400">เปิดรับสมัครรุ่นที่ 1 — กุมภาพันธ์ 2025</span>
+            </div>
+            
+            <h1 class="font-display text-5xl sm:text-7xl font-bold mb-6">
+                <span class="gradient-text">AI for Designers</span>
+                <br>Workshop
+            </h1>
+            
+            <p class="text-xl sm:text-2xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+                เรียนรู้การใช้ AI เพื่อเพิ่มประสิทธิภาพการทำงานด้าน Design 
+                <span class="text-white font-medium">จาก 0 ถึง Pro ใน 1 วัน</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="#register" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl font-semibold text-lg hover:opacity-90 transition glow">
+                    🚀 สมัครเลย — ฿5,900
+                </a>
+                <a href="#curriculum" class="px-8 py-4 glass rounded-xl font-semibold text-lg hover:bg-white/10 transition">
+                    📚 ดูหลักสูตร
+                </a>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-zinc-400">
+                <div class="flex items-center gap-2"><span class="text-xl">⏱️</span> 1 วันเต็ม (6 ชม.)</div>
+                <div class="flex items-center gap-2"><span class="text-xl">👥</span> max 20 คน/รุ่น</div>
+                <div class="flex items-center gap-2"><span class="text-xl">🎓</span> Certificate</div>
+                <div class="flex items-center gap-2"><span class="text-xl">💻</span> Hands-on Workshop</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="py-20 px-4 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="glass rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-40 h-40 rounded-full bg-gradient-to-br from-orange-500 to-purple-500 flex items-center justify-center text-6xl font-bold shrink-0">
+                    M
+                </div>
+                <div>
+                    <p class="text-orange-400 font-medium mb-2">Your Instructor</p>
+                    <h2 class="text-3xl font-bold mb-2">May (Kacha Hanchana)</h2>
+                    <p class="text-zinc-400 mb-4">Design System Lead @ AXONS | 16+ Years Experience</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 glass rounded-full text-sm">Design Systems</span>
+                        <span class="px-3 py-1 glass rounded-full text-sm">UX/UI</span>
+                        <span class="px-3 py-1 glass rounded-full text-sm">AI Strategy</span>
+                        <span class="px-3 py-1 glass rounded-full text-sm">ADPList Mentor</span>
+                    </div>
+                    <p class="text-zinc-300">
+                        สร้างทีม UX/UI จาก 1 คน เป็น 90+ คน ใน 5 ปี | 
+                        ทำงานกับ Expedia, Prudential, SCB, True, Central
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="py-20 px-4 mesh-bg">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">หลักสูตร 3 ระดับ</h2>
+                <p class="text-zinc-400">ครอบคลุมทุกสิ่งที่ Designer ต้องรู้เกี่ยวกับ AI</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Beginner -->
+                <div class="glass rounded-2xl p-6 card-hover border-t-4 border-green-500">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <h3 class="text-xl font-bold text-green-400 mb-2">Beginner</h3>
+                    <p class="text-zinc-400 text-sm mb-4">พื้นฐาน AI สำหรับ Designer</p>
+                    <ul class="space-y-2 text-sm text-zinc-300">
+                        <li>✓ AI Fundamentals</li>
+                        <li>✓ Prompt Engineering 101</li>
+                        <li>✓ AI for UX Research</li>
+                        <li>✓ AI Image Generation</li>
+                        <li>✓ UX Writing with AI</li>
+                    </ul>
+                </div>
+                
+                <!-- Intermediate -->
+                <div class="glass rounded-2xl p-6 card-hover border-t-4 border-yellow-500 md:-mt-4 md:mb-4">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-2">Intermediate</h3>
+                    <p class="text-zinc-400 text-sm mb-4">เทคนิคขั้นสูง</p>
+                    <ul class="space-y-2 text-sm text-zinc-300">
+                        <li>✓ Advanced Prompting</li>
+                        <li>✓ Chain-of-Thought</li>
+                        <li>✓ Multi-Modal AI</li>
+                        <li>✓ Vision Models</li>
+                        <li>✓ AI Agents & Automation</li>
+                    </ul>
+                </div>
+                
+                <!-- Advanced -->
+                <div class="glass rounded-2xl p-6 card-hover border-t-4 border-red-500">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold text-red-400 mb-2">Advanced</h3>
+                    <p class="text-zinc-400 text-sm mb-4">Enterprise & Leadership</p>
+                    <ul class="space-y-2 text-sm text-zinc-300">
+                        <li>✓ RAG & Knowledge Systems</li>
+                        <li>✓ Fine-Tuning Models</li>
+                        <li>✓ Building AI Plugins</li>
+                        <li>✓ AI Governance & Ethics</li>
+                        <li>✓ Team Training</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn -->
+    <section class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">สิ่งที่คุณจะได้เรียนรู้</h2>
+                <p class="text-zinc-400">ทักษะที่นำไปใช้งานได้ทันที</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass rounded-xl p-5 card-hover">
+                    <div class="text-3xl mb-3">✍️</div>
+                    <h3 class="font-bold mb-1">Prompt Engineering</h3>
+                    <p class="text-zinc-400 text-sm">เขียน prompt ที่ได้ผลลัพธ์ตรงใจ</p>
+                </div>
+                <div class="glass rounded-xl p-5 card-hover">
+                    <div class="text-3xl mb-3">🔬</div>
+                    <h3 class="font-bold mb-1">AI Research</h3>
+                    <p class="text-zinc-400 text-sm">ทำ UX Research ด้วย AI</p>
+                </div>
+                <div class="glass rounded-xl p-5 card-hover">
+                    <div class="text-3xl mb-3">🎨</div>
+                    <h3 class="font-bold mb-1">Image Generation</h3>
+                    <p class="text-zinc-400 text-sm">สร้างภาพด้วย Midjourney, DALL-E</p>
+                </div>
+                <div class="glass rounded-xl p-5 card-hover">
+                    <div class="text-3xl mb-3">📝</div>
+                    <h3 class="font-bold mb-1">UX Writing</h3>
+                    <p class="text-zinc-400 text-sm">เขียน microcopy ด้วย AI</p>
+                </div>
+                <div class="glass rounded-xl p-5 card-hover">
+                    <div class="text-3xl mb-3">🤖</div>
+                    <h3 class="font-bold mb-1">Custom GPTs</h3>
+                    <p class="text-zinc-400 text-sm">สร้าง AI assistant ของตัวเอง</p>
+                </div>
+                <div class="glass rounded-xl p-5 card-hover">
+                    <div class="text-3xl mb-3">⚡</div>
+                    <h3 class="font-bold mb-1">Automation</h3>
+                    <p class="text-zinc-400 text-sm">ลดงาน repetitive ด้วย AI</p>
+                </div>
+                <div class="glass rounded-xl p-5 card-hover">
+                    <div class="text-3xl mb-3">🔌</div>
+                    <h3 class="font-bold mb-1">AI Plugins</h3>
+                    <p class="text-zinc-400 text-sm">ใช้ AI ใน Figma, Sketch</p>
+                </div>
+                <div class="glass rounded-xl p-5 card-hover">
+                    <div class="text-3xl mb-3">📊</div>
+                    <h3 class="font-bold mb-1">AI Strategy</h3>
+                    <p class="text-zinc-400 text-sm">วางแผน AI สำหรับทีม</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="register" class="py-20 px-4 mesh-bg">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">พร้อมเริ่มต้นหรือยัง?</h2>
+            <p class="text-zinc-400 mb-12">เลือก package ที่เหมาะกับคุณ</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Standard -->
+                <div class="glass rounded-2xl p-8 card-hover">
+                    <h3 class="text-xl font-bold mb-2">Standard</h3>
+                    <p class="text-zinc-400 text-sm mb-4">Beginner Level</p>
+                    <div class="text-4xl font-bold mb-6">฿5,900</div>
+                    <ul class="space-y-3 text-left text-sm mb-8">
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Beginner Workshop (2 ชม.)</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Slide deck & resources</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Certificate</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Private Discord group</li>
+                    </ul>
+                    <a href="https://forms.gle/XXXXX" class="block w-full py-3 glass rounded-xl font-semibold hover:bg-white/10 transition">
+                        สมัคร Standard
+                    </a>
+                </div>
+                
+                <!-- Pro -->
+                <div class="glass rounded-2xl p-8 card-hover border-2 border-orange-500/50 relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full text-sm font-medium">
+                        แนะนำ
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pro</h3>
+                    <p class="text-zinc-400 text-sm mb-4">All 3 Levels</p>
+                    <div class="text-4xl font-bold mb-2">฿14,900</div>
+                    <p class="text-green-400 text-sm mb-4">ประหยัด ฿2,800</p>
+                    <ul class="space-y-3 text-left text-sm mb-8">
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> All 3 workshops (6 ชม.)</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> All slides & resources</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Certificate</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Private Discord group</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-400">★</span> 1-on-1 consultation (30 นาที)</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-400">★</span> Prompt template library</li>
+                    </ul>
+                    <a href="https://forms.gle/XXXXX" class="block w-full py-3 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl font-semibold hover:opacity-90 transition">
+                        สมัคร Pro
+                    </a>
+                </div>
+            </div>
+            
+            <p class="text-zinc-500 text-sm mt-8">
+                🏢 สนใจ Corporate Training? <a href="mailto:sira.hanchana@gmail.com" class="text-orange-400 hover:underline">ติดต่อสอบถาม</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">คำถามที่พบบ่อย</h2>
+            
+            <div class="space-y-4">
+                <details class="glass rounded-xl p-6 cursor-pointer group">
+                    <summary class="font-semibold flex justify-between items-center">
+                        ต้องมีความรู้ด้าน AI มาก่อนไหม?
+                        <span class="text-zinc-500 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-zinc-400 mt-4">ไม่ต้องค่ะ! Beginner level เริ่มจาก 0 เลย เหมาะสำหรับคนที่ไม่เคยใช้ AI มาก่อน</p>
+                </details>
+                
+                <details class="glass rounded-xl p-6 cursor-pointer group">
+                    <summary class="font-semibold flex justify-between items-center">
+                        Workshop จัดที่ไหน?
+                        <span class="text-zinc-500 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-zinc-400 mt-4">จัดที่กรุงเทพฯ (สถานที่จะแจ้งให้ทราบหลังสมัคร) หรือ Online ผ่าน Zoom ก็ได้ค่ะ</p>
+                </details>
+                
+                <details class="glass rounded-xl p-6 cursor-pointer group">
+                    <summary class="font-semibold flex justify-between items-center">
+                        ต้องเตรียมอะไรมาบ้าง?
+                        <span class="text-zinc-500 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-zinc-400 mt-4">Laptop + บัญชี ChatGPT (ฟรีหรือ Plus ก็ได้) + Figma account</p>
+                </details>
+                
+                <details class="glass rounded-xl p-6 cursor-pointer group">
+                    <summary class="font-semibold flex justify-between items-center">
+                        สามารถขอใบเสร็จ/ใบกำกับภาษีได้ไหม?
+                        <span class="text-zinc-500 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-zinc-400 mt-4">ได้ค่ะ สำหรับ Corporate training สามารถออกใบกำกับภาษีได้</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-4 mesh-bg">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="text-6xl mb-6 float">🤖</div>
+            <h2 class="text-4xl font-bold mb-4">พร้อมยกระดับการทำงานด้วย AI?</h2>
+            <p class="text-zinc-400 mb-8">รุ่นที่ 1 เปิดรับเพียง 20 คน — อย่าพลาด!</p>
+            <a href="#register" class="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl font-semibold text-lg hover:opacity-90 transition glow">
+                🚀 สมัครเลย
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-white/5">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
+            <p>© 2025 AI for Designers Workshop by May (Kacha Hanchana)</p>
+            <div class="flex gap-4">
+                <a href="https://linkedin.com/in/kachahanchana" class="hover:text-white transition">LinkedIn</a>
+                <a href="mailto:sira.hanchana@gmail.com" class="hover:text-white transition">Email</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
